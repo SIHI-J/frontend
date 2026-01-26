@@ -1,0 +1,260 @@
+.create_section,
+.edit_section {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 32px 28px;
+  background: #fff;
+}
+.create_section h2,
+.edit_section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-align: center;
+  color: #333;
+}
+.create_section form,
+.edit_section form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.create_section p,
+.edit_section p {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.create_section label,
+.edit_section label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+.create_section input,
+.create_section select,
+.edit_section input,
+.edit_section select {
+  height: 44px;
+  padding: 0 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: all 0.25s ease;
+}
+.create_section input:focus,
+.create_section select:focus,
+.edit_section input:focus,
+.edit_section select:focus {
+  outline: none;
+  border-color: #ff9900;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
+}
+.create_section button,
+.edit_section button {
+  margin-top: 12px;
+  height: 46px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff9900, #ff7a00);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.create_section button:hover,
+.edit_section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 153, 0, 0.35);
+}
+.create_section button:active,
+.edit_section button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(255, 153, 0, 0.25);
+}
+
+.color_select {
+  position: relative;
+  width: 100%;
+}
+.color_select .color_selected {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.color_select .color_selected:hover {
+  border-color: #ff9900;
+}
+.color_select .color_selected:focus {
+  outline: none;
+  border-color: #ff9900;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
+}
+.color_select .color_selected.has_value {
+  color: #222;
+}
+.color_select .color_selected .arrow {
+  margin-left: auto;
+  transition: 0.2s;
+}
+.color_select .color_selected .arrow.open {
+  transform: rotate(180deg);
+}
+.color_select .color_selected .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+}
+.color_select .color_selected .dot.red {
+  background: #ff4d4d;
+}
+.color_select .color_selected .dot.orange {
+  background: #ff9a3b;
+}
+.color_select .color_selected .dot.yellow {
+  background: #ffd33b;
+}
+.color_select .color_selected .dot.green {
+  background: #38c172;
+}
+.color_select .color_selected .dot.purple {
+  background: #9b59ff;
+}
+.color_select .color_selected .dot.black {
+  background: #222;
+}
+.color_select .color_selected .dot.brown {
+  background: #8b5a2b;
+}
+.color_select .color_selected .dot.none {
+  background: #ddd;
+}
+.color_select .color_options {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+.color_select .color_options li {
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+.color_select .color_options li.red:hover {
+  background: #ffe1e1;
+}
+.color_select .color_options li.orange:hover {
+  background: #ffe8d1;
+}
+.color_select .color_options li.yellow:hover {
+  background: #fff6cc;
+}
+.color_select .color_options li.green:hover {
+  background: #dcf7e7;
+}
+.color_select .color_options li.purple:hover {
+  background: #efe6ff;
+}
+.color_select .color_options li.black:hover {
+  background: #f0f0f0;
+}
+.color_select .color_options li.brown:hover {
+  background: #f2e7dd;
+}
+.color_select .color_options li:active {
+  transform: scale(0.99);
+}
+
+.hint {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #ff5a3b;
+}
+
+.login_page {
+  margin: 50px auto;
+}
+.login_page h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+}
+
+.login_form {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.login_form p {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.login_form p label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+.login_form p input {
+  height: 44px;
+  padding: 0 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: all 0.25s ease;
+}
+.login_form p input:focus {
+  outline: none;
+  border-color: #ff9900;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
+}
+.login_form .link {
+  flex-direction: row;
+  justify-content: center;
+}
+.login_form .link a {
+  color: #ff7a00;
+  font-weight: 600;
+  text-decoration: none;
+}
+.login_form .link a:hover {
+  text-decoration: underline;
+}
+.login_form #submit_btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: #ff7a00;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.login_form #submit_btn:hover {
+  background: #ff9900;
+}
+.login_form #submit_btn:active {
+  transform: scale(0.98);
+}/*# sourceMappingURL=input.css.map */
