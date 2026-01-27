@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function FruitsCreate(props) {
   const [form, setForm] = useState({
@@ -13,7 +14,7 @@ function FruitsCreate(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:9070/fruits/fruitsupdate/${num}`)
+    axios.get(`${BASE_URL}/fruits/fruitsupdate/${num}`)
       .then(res => {
         setForm({
           name: res.data.name,
@@ -64,7 +65,7 @@ function FruitsCreate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`http://localhost:9070/fruits/fruitsupdate/${num}`, {
+    axios.put(`${BASE_URL}/fruits/fruitsupdate/${num}`, {
       name: form.name.trim(),
       price: Number(form.price),
       color: form.color,

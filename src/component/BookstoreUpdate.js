@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../css/input.css';
+import BASE_URL from '../config';
 
 function BookstoreUpdate(props) {
   //상태값 관리를 위한 함수
@@ -19,7 +20,7 @@ function BookstoreUpdate(props) {
   const navigate = useNavigate();
   //2. 백엔드 서버측으로 넘길 데이터를 통신해서 성공, 실패여부를 출력한다.
   useEffect(() => {
-    axios.get(`http://localhost:9070/book_store/book_storeupdate/${code}`)
+    axios.get(`${BASE_URL}/book_store/book_storeupdate/${code}`)
       //성공이면 출력
       .then(res => {
         console.log('서버 응답 값 : ', res.data);
@@ -48,7 +49,7 @@ function BookstoreUpdate(props) {
     e.preventDefault();
 
     //비동기로 업데이트할 내용을 백엔드로 전달해줌
-    axios.put(`http://localhost:9070/book_store/book_storeupdate/${code}`, {
+    axios.put(`${BASE_URL}/book_store/book_storeupdate/${code}`, {
       name: form.name,
       area1: form.area1,
       area2: form.area2,

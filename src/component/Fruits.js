@@ -3,6 +3,7 @@ import '../css/table.css';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
 
 const Fruits = () => {
   const [data, setData] = useState([]); //json데이터 받기
@@ -28,7 +29,7 @@ const Fruits = () => {
   //리스트 출력
   const loadData = useCallback(() => {
     axios
-      .get('http://localhost:9070/fruits')
+      .get(`${BASE_URL}/fruits`)
       .then((res) => {
         setData(res.data);
       })
@@ -43,7 +44,7 @@ const Fruits = () => {
   };
   const handleDelete = (num) => {
     if (!window.confirm('정말 삭제 할까요?')) return;
-    axios.delete(`http://localhost:9070/fruits/${num}`)
+    axios.delete(`${BASE_URL}/fruits/${num}`)
       .then(() => {
         alert('삭제 완료!');
         setFruitsCount(prev => Math.max(0, prev - 1));

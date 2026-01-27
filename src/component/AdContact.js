@@ -2,6 +2,7 @@ import axios from 'axios';
 import '../css/table.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
 
 const AdContact = () => {
   const [data, setData] = useState([]); //json데이터 받기
@@ -9,7 +10,7 @@ const AdContact = () => {
   //리스트 출력
   const loadData = () => {
     axios
-      .get('http://localhost:9070/question')
+      .get(`${BASE_URL}/question`)
       //성공시 데이터 저장
       .then(res => setData(res.data))
       //실패시 에러 출력

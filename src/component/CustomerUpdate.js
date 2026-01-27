@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function CustomerUpdate(props) {
   //상태값 관리 함수
@@ -23,7 +24,7 @@ function CustomerUpdate(props) {
   const navigate = useNavigate();
   //상품 정보 불러오기
   useEffect(() => {
-    axios.get(`http://localhost:9070/customer/customerupdate/${no}`)
+    axios.get(`${BASE_URL}/customer/customerupdate/${no}`)
       .then(res => {
         setForm({
           c_name: res.data.c_name,
@@ -48,7 +49,7 @@ function CustomerUpdate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`http://localhost:9070/customer/customerupdate/${no}`, {
+    axios.put(`${BASE_URL}/customer/customerupdate/${no}`, {
       c_name: form.c_name.trim(),
       c_address: form.c_address.trim(),
       c_tel: formatPhoneNumber(form.c_tel)

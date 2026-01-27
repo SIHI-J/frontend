@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function NoodleUpdate(props) {
   //상태값 관리를 위한 함수
@@ -16,7 +17,7 @@ function NoodleUpdate(props) {
   });
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:9070/noodle/noodleupdate/${num}`)
+    axios.get(`${BASE_URL}/noodle/noodleupdate/${num}`)
       //성공이면 출력
       .then(res => {
         console.log('서버 응답 값 : ', res.data);
@@ -45,7 +46,7 @@ function NoodleUpdate(props) {
     e.preventDefault();
 
     //비동기로 업데이트할 내용을 백엔드로 전달해줌
-    axios.put(`http://localhost:9070/noodle/noodleupdate/${num}`, {
+    axios.put(`${BASE_URL}/noodle/noodleupdate/${num}`, {
       name: form.name,
       company: form.company,
       kind: form.kind,

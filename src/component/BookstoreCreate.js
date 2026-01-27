@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/input.css';
+import BASE_URL from '../config';
 
 function BookstoreCreate(props) {
   //상태값 관리를 위한 함수
@@ -29,7 +30,7 @@ function BookstoreCreate(props) {
   const handleSubmit = (e) => {
     e.preventDefault(); //새로고침 막기
 
-    axios.post('http://localhost:9070/book_store', form)
+    axios.post(`${BASE_URL}/book_store`, form)
       .then(() => { //통신이 성공하면
         alert('상품이 등록 완료 되었습니다.');
         navigate('/book_store'); //상품목록 페이지로 이동하기

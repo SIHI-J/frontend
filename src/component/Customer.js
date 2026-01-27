@@ -3,6 +3,7 @@ import '../css/table.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
 
 const Customer = () => {
   const [data, setData] = useState([]); //json데이터 받기
@@ -11,7 +12,7 @@ const Customer = () => {
   //리스트 출력
   const loadData = useCallback(() => {
     axios
-      .get('http://localhost:9070/customer')
+      .get(`${BASE_URL}/customer`)
       .then(res => {
         setData(res.data);
         setCustomerCount(res.data.length);
@@ -24,7 +25,7 @@ const Customer = () => {
   const handleDelete = (no) => {
     if (!window.confirm('정말 삭제할까요?')) return;
 
-    axios.delete(`http://localhost:9070/customer/customerupdate/${no}`)
+    axios.delete(`${BASE_URL}/customer/customerupdate/${no}`)
       .then(() => {
         alert('삭제 완료!');
         loadData(); // 삭제 후 목록 다시 불러오기

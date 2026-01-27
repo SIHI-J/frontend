@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
 
 function FruitsCreate(props) {
   const [form, setForm] = useState({
@@ -48,7 +49,7 @@ function FruitsCreate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:9070/fruits', {
+    axios.post(`${BASE_URL}/fruits`, {
       name: form.name.trim(),
       price: Number(form.price),
       color: form.color,

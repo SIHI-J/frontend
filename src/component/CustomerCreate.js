@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function CustomerCreate(props) {
   //상태값 관리 함수
@@ -35,7 +36,7 @@ function CustomerCreate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:9070/customer', form)
+    axios.post(`${BASE_URL}/customer`, form)
       .then(() => {
         alert('상품이 등록 완료 되었습니다');
         navigate('/customer');

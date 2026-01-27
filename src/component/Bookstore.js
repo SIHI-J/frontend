@@ -3,13 +3,14 @@ import '../css/table.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
 const Bookstore = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const { setBookstoreCount } = useAlert();
   const loadData = useCallback(() => {
     axios
-      .get('http://localhost:9070/book_store')
+      .get(`${BASE_URL}/book_store`)
       .then(res => {
         setData(res.data);
         setBookstoreCount(res.data.length);
@@ -22,7 +23,7 @@ const Bookstore = () => {
 
   const handleDelete = (code) => {
     if (!window.confirm('정말 삭제하시겠습니까?')) return;
-    axios.delete(`http://localhost:9070/book_store/${code}`)
+    axios.delete(`${BASE_URL}/book_store/${code}`)
       .then(() => {
         alert('삭제 완료!');
         loadData();

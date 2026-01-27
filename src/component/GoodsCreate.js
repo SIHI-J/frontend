@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/input.css';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
+
 function GoodsCreate(props) {
   //상태값 관리 함수
   const [form, setForm] = useState({
@@ -25,7 +27,7 @@ function GoodsCreate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:9070/goods', form)
+    axios.post(`${BASE_URL}/goods`, form)
       .then(() => {
         alert('상품이 등록 완료 되었습니다');
         setGoodsCount(prev => prev + 1);

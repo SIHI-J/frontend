@@ -3,6 +3,7 @@ import '../css/table.css';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
 
 const Goods = () => {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ const Goods = () => {
 const { setGoodsCount } = useAlert();
   const loadData = useCallback(() => {
     axios
-      .get('http://localhost:9070/goods')
+      .get(`${BASE_URL}/goods`)
       .then((res) => {
         setData(res.data);
       })
@@ -28,7 +29,7 @@ const { setGoodsCount } = useAlert();
     if (!window.confirm('정말 삭제할까요?')) return;
 
     axios
-      .delete(`http://localhost:9070/goods/${g_code}`)
+      .delete(`${BASE_URL}/goods/${g_code}`)
       .then(() => {
         alert('삭제 완료!');
         setGoodsCount(prev => Math.max(0, prev - 1));

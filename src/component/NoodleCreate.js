@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function NoodleCreate(props) {
   //상태값 관리를 위한 함수
@@ -24,7 +25,7 @@ function NoodleCreate(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:9070/noodle', {
+    axios.post(`${BASE_URL}/noodle`, {
       name: form.name,
       company: form.company,
       kind: form.kind,

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../context/AlertContext';
 import '../css/fnq.css';
+import BASE_URL from '../config';
 function Contact() {
   const navigate = useNavigate();
   const { setContactCount } = useAlert();
@@ -49,7 +50,7 @@ function Contact() {
     if (!form.agree) return alert('개인정보 처리방침에 체크해주세요.');
 
     try {
-      const response = await axios.post('http://localhost:9070/question', form);
+      const response = await axios.post(`${BASE_URL}/question`, form);
       if (response.status === 200) {
         alert('질문 등록이 완료되었습니다.');
         setContactCount(count => count + 1);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function GoodsUpdate(props) {
   //상태값 관리 함수
@@ -13,7 +14,7 @@ function GoodsUpdate(props) {
   const navigate = useNavigate();
   //상품 정보 불러오기
   useEffect(() => {
-    axios.get(`http://localhost:9070/goods/goodsupdate/${g_code}`)
+    axios.get(`${BASE_URL}/goods/goodsupdate/${g_code}`)
       .then(res => {
         setForm({
           g_name: res.data.g_name,
@@ -37,7 +38,7 @@ function GoodsUpdate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`http://localhost:9070/goods/goodsupdate/${g_code}`, {
+    axios.put(`${BASE_URL}/goods/goodsupdate/${g_code}`, {
       g_name: form.g_name.trim(),
       g_cost: Number(form.g_cost) / 10 // ⭐ 여기!
     })
