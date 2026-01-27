@@ -28,7 +28,9 @@ function AppContent() {
   const { pushNotification } = useAlert();
 
   useEffect(() => {
-    const eventSource = new EventSource('http://localhost:9070/');
+    const eventSource = new EventSource(
+  'https://port-0-backend-server-mkulo9cb3bc6cf69.sel3.cloudtype.app/'
+);
 
     eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);
@@ -66,4 +68,5 @@ function AppContent() {
     </>
   );
 }
+
 export default AppContent;
