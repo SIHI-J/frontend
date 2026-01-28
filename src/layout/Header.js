@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useAlert } from '../context/AlertContext';
+import BASE_URL from '../config';
 function Header(props) {
   const { goodsCount, setGoodsCount, fruitsCount, setFruitsCount, noodleCount, setNoodleCount, bookstoreCount, setBookstoreCount, customerCount, setCustomerCount, contactCount, setContactCount } = useAlert();
 
@@ -10,9 +11,9 @@ function Header(props) {
       try {
         // 여러 개의 요청을 동시에 병렬로 처리합니다.
         const [noodle, bookstore, customer] = await Promise.all([
-          axios.get('http://localhost:9070/noodle'),
-          axios.get('http://localhost:9070/book_store'),
-          axios.get('http://localhost:9070/customer')
+          axios.get(`${BASE_URL}/noodle`),
+          axios.get(`${BASE_URL}/book_store`),
+          axios.get(`${BASE_URL}/customer`)
         ]);
 
         setNoodleCount(noodle.data.length);
@@ -67,5 +68,6 @@ function Header(props) {
 
   );
 }
+
 
 export default Header;
