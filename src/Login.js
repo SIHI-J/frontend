@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import BASE_URL from './config';
 function Login(props) {
   const [loginForm, setLoginForm] = useState({ userid: '', password: '' });
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Login(props) {
     e.preventDefault();
 
     // 백엔드의 로그인 엔드포인트로 데이터 전송
-    axios.post('http://localhost:9070/login', loginForm)
+    axios.post(`${BASE_URL}/login`, loginForm)
       .then(res => {
         const token = res.data.token;
         localStorage.setItem('userToken', token); // 브라우저에 토큰 저장
@@ -77,5 +77,6 @@ function Login(props) {
     </section>
   );
 }
+
 
 export default Login;
