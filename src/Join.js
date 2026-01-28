@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import BASE_URL from './config';
 function Join(props) {
   //상태값 관리를 위한 함수
   const [form, setForm] = useState({
@@ -24,7 +24,7 @@ function Join(props) {
       alert('비밀번호가 일치하지 않습니다.');
       return;
     }
-    axios.post('http://localhost:9070/users', {
+    axios.post(`${BASE_URL}/users`, {
       userid: form.userid,
       username: form.username,
       password: form.password,
@@ -65,5 +65,6 @@ function Join(props) {
     </section>
   );
 }
+
 
 export default Join;
